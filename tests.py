@@ -7,7 +7,7 @@ class TestBooksCollector:
     def test_add_new_book_add_two_books(self, collector):
         collector.add_new_book(BOOK_TITLE)
         collector.add_new_book('Что делать, если ваш кот хочет вас убить')
-        assert len(collector.get_books_rating()) == 2
+        assert len(collector.get_books_genre()) == 2
 
     def test_set_book_genre_success(self, collector):
         collector.add_new_book(BOOK_TITLE)
@@ -61,6 +61,4 @@ class TestBooksCollector:
         assert BOOK_TITLE not in collector.get_list_of_favorites_books()
 
     def test_get_list_of_favorites_books(self, collector):
-        collector.add_new_book('Привет')
-        collector.set_book_genre('Привет', 'Фантастика')
-        assert collector.get_list_of_favorites_books('Привет') == 'Фантастика'
+        assert collector.get_list_of_favorites_books() == []
