@@ -37,6 +37,12 @@ class TestBooksCollector:
         fantasy_books = collector.get_books_with_specific_genre('Фантастика')
         assert len(fantasy_books) == 2
 
+    def test_get_books_genre_success(self, collector):
+        collector.add_new_book(BOOK_TITLE)
+        collector.set_book_genre(BOOK_TITLE, GENRE_BOOK)
+        books_genre = collector.get_books_genre()
+        assert BOOK_TITLE in books_genre
+
     def test_get_books_for_children_show_in_list(self, collector):
         children_books = [
             ('Властелин колец', 'Фантастика'),
